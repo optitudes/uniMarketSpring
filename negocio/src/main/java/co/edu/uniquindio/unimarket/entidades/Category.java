@@ -1,10 +1,11 @@
-package co.edu.uniquindio.unicine.entidades;
+package co.edu.uniquindio.unimarket.entidades;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -23,6 +24,21 @@ public class Category implements Serializable {
 
     @Column(name="description", length=200,nullable = false)
     private String description;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Category category = (Category) o;
+
+        return Objects.equals(id, category.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 
     @ManyToMany
     private List<Product> productList;

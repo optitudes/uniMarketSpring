@@ -1,10 +1,11 @@
-package co.edu.uniquindio.unicine.entidades;
+package co.edu.uniquindio.unimarket.entidades;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -21,6 +22,8 @@ public class User  implements Serializable {
     @Column(name="email", length=50,unique=true,nullable = false)
     private String email;
 
+    @Column(name="name", length=45,unique=true,nullable = false)
+    private String name;
     @Column(name="password",length=45,nullable = false)
     private String password;
 
@@ -35,6 +38,21 @@ public class User  implements Serializable {
 
     @Column(name="is_active",nullable = false)
     private Boolean isActive;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 
     @OneToOne(mappedBy="user")
     private Favorite favorite;

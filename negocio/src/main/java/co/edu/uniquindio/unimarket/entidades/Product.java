@@ -1,4 +1,4 @@
-package co.edu.uniquindio.unicine.entidades;
+package co.edu.uniquindio.unimarket.entidades;
 
 import lombok.*;
 
@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -38,6 +39,21 @@ public class Product implements Serializable {
 
     @Column(name="is_active",nullable = false)
     private Boolean isActive;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return Objects.equals(id, product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 
     @OneToMany(mappedBy = "product")
     private List<Comment> commentList;

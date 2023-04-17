@@ -1,9 +1,11 @@
-package co.edu.uniquindio.unicine.entidades;
+package co.edu.uniquindio.unimarket.entidades;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,6 +23,21 @@ public class LevelAccess implements Serializable {
 
     @Column(name="description", length=100,nullable = false)
     private String description;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        LevelAccess that = (LevelAccess) o;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 
     @OneToOne
     private User user;

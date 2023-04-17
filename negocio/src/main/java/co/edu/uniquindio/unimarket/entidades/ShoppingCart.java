@@ -1,10 +1,11 @@
-package co.edu.uniquindio.unicine.entidades;
+package co.edu.uniquindio.unimarket.entidades;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -20,6 +21,21 @@ public class ShoppingCart implements Serializable {
 
     @Column(name="full_value",nullable = false)
     private Double fullValue;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShoppingCart that = (ShoppingCart) o;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 
     @OneToOne
     private User user;
