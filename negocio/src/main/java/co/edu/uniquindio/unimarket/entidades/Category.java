@@ -3,6 +3,7 @@ package co.edu.uniquindio.unimarket.entidades;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +18,7 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name="name", length=45,nullable = false)
     private String name;

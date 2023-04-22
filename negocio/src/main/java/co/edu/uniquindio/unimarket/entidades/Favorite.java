@@ -17,7 +17,7 @@ public class Favorite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Override
     public boolean equals(Object o) {

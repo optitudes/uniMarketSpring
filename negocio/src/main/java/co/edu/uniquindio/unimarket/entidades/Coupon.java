@@ -17,7 +17,7 @@ public class Coupon implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name="coupon_value",nullable = false)
     private Double couponValue;
@@ -29,7 +29,7 @@ public class Coupon implements Serializable {
     private String description;
 
     @Column(name="is_active",nullable = false)
-    private Double isActive;
+    private Boolean isActive;
 
     @Column(name="limit_date",nullable = false)
     private Date limitDate;

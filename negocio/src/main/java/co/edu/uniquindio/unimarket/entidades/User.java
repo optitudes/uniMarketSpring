@@ -3,6 +3,7 @@ package co.edu.uniquindio.unimarket.entidades;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +18,7 @@ public class User  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name="email", length=50,unique=true,nullable = false)
     private String email;
@@ -60,7 +61,8 @@ public class User  implements Serializable {
     @OneToOne(mappedBy = "user")
     private ShoppingCart shoppingCart;
 
-    @OneToOne(mappedBy = "user")
+    @ManyToOne
+    @NotNull
     private LevelAccess levelAccess;
 
     @OneToMany(mappedBy = "user")

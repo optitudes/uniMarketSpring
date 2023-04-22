@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -16,7 +17,7 @@ public class LevelAccess implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name="access_code",unique=true,nullable = false)
     private Integer accessCode;
@@ -39,6 +40,6 @@ public class LevelAccess implements Serializable {
         return id != null ? id.hashCode() : 0;
     }
 
-    @OneToOne
-    private User user;
+    @OneToMany(mappedBy = "levelAccess")
+    private List<User> user;
 }

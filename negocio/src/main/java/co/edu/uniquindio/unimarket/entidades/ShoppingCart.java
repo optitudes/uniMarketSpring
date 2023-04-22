@@ -17,7 +17,7 @@ public class ShoppingCart implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name="full_value",nullable = false)
     private Double fullValue;
