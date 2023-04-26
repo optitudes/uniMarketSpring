@@ -29,17 +29,17 @@ INSERT INTO coupon (id, coupon_value, description, is_active, limit_date, securi
 VALUES (4,125000.0, 'Cupon generado automativamente', true, '2023-12-12', '555-56785', 4);
 
 
-INSERT INTO product (id, description, image, is_active, is_available, name, price)
-VALUES (1,"un pan muy rico", 'image/url', true, true, 'pan', 4.0);
+INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
+VALUES (1,"un pan muy rico", 'image/url', true, true,1, 'pan', 4.0);
 
-INSERT INTO product (id, description, image, is_active, is_available, name, price)
-VALUES (2,"Lampara de noche muy luminosa", 'image/url', true, true, 'Lampara de noche', 200.0);
+INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
+VALUES (2,"Lampara de noche muy luminosa", 'image/url', true, true,1, 'Lampara de noche', 200.0);
 
-INSERT INTO product (id, description, image, is_active, is_available, name, price)
-VALUES (3,"LLanta de carro", 'image/url', true, true, 'Llanta carro', 4000.0);
+INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
+VALUES (3,"LLanta de carro", 'image/url', true, true,1, 'Llanta carro', 4000.0);
 
-INSERT INTO product (id, description, image, is_active, is_available, name, price)
-VALUES (4,"Guitarra gypson 2022", 'image/url', true, true, 'gypson guitarra', 499000.0);
+INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
+VALUES (4,"Guitarra gypson 2022", 'image/url', true, true,1, 'gypson guitarra', 499000.0);
 
 
 INSERT INTO comment (id, comment, product_id, user_id)
@@ -105,6 +105,26 @@ INSERT INTO category_product_list (category_list_id,product_list_id)
 VALUES (3,3);
 INSERT INTO category_product_list (category_list_id,product_list_id)
 VALUES (4,4);
+
+INSERT INTO bill (id, bill_code, total, user_id)
+VALUES (1, '001', 100.50, 1);
+INSERT INTO bill (id, bill_code, total, user_id)
+VALUES (2, '001', 100.50, 2);
+INSERT INTO bill (id, bill_code, total, user_id)
+VALUES (3, '001', 100.50, 3);
+INSERT INTO bill (id, bill_code, total, user_id)
+VALUES (4, '001', 100.50, 4);
+
+INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
+VALUES (1, 2, 50.00, 1, 1);
+INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
+VALUES (2, 2, 50.00, 2, 2);
+INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
+VALUES (3, 2, 50.00, 3, 3);
+INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
+VALUES (4, 2, 50.00, 4, 4);
+
+
 
 
 

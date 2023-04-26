@@ -23,7 +23,7 @@ public class ProductTest {
     @Test
     public void create(){
 
-        Product product = new Product(1,"url","pan","un pan muy rico",20.0,true,new Date(),true,null,null,null,null);
+        Product product = new Product(1,"url","pan","un pan muy rico",20.0,true,1,new Date(),true,null,null,null,null,null);
         Product productSaved = productRepo.save(product);
         Assertions.assertEquals("pan", productSaved.getName());
         System.out.println(productSaved);

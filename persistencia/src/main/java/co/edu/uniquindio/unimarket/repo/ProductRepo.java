@@ -24,4 +24,6 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
     @Query("select p from Product p where p.name like %:pattern%")
     List<Product> finfByPattern(String pattern);
 
+
+
 }

@@ -72,4 +72,8 @@ public class User  implements Serializable {
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
     private List<Comment> commentList;
+
+    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    private List<Bill> billList;
 }

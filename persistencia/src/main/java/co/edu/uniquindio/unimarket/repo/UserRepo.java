@@ -18,6 +18,8 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmail(String email);
 
+    Optional<User> findByDni(String dni);
+
     Page<User> findAll(Pageable pageable);
 
     Optional<User> findByEmailAndIsActive(String email, boolean isActive);
@@ -38,5 +40,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     @Query("select u from User u where u.name like %:patron%")
     List<User> buscarPatronNombre(String patron);
+
+
 
 }

@@ -35,6 +35,9 @@ public class Product implements Serializable {
     @Column(name="is_available",nullable = false)
     private Boolean isAvailable;
 
+    @Column(name = "stacks",nullable = false)
+    private Integer stacks;
+
     private Date limitDate;
 
     @Column(name="is_active",nullable = false)
@@ -67,5 +70,9 @@ public class Product implements Serializable {
 
     @ManyToMany(mappedBy = "productList")
     private List<ShoppingCart> shoppingCartList;
+
+    @OneToMany(mappedBy = "product")
+    @ToString.Exclude
+    List<BillDetail> billDetailList;
 
 }

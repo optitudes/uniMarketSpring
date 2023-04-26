@@ -41,7 +41,7 @@ public class UserTest {
         boolean isActive = true;
         String name = "pablo";
 
-        User user = new User(1,email,name,password,dni,phoneNumber,address,isActive,null,null,null,null,null);
+        User user = new User(1,email,name,password,dni,phoneNumber,address,isActive,null,null,null,null,null,null);
 
         User usuarioGuardado = userRepo.save(user);
         Assertions.assertEquals("pablo", usuarioGuardado.getName());
