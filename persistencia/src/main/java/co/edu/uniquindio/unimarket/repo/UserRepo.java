@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.repo;
 
+import co.edu.uniquindio.unimarket.entidades.Bill;
 import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.entidades.User;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Repository
@@ -40,6 +42,12 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     @Query("select u from User u where u.name like %:patron%")
     List<User> buscarPatronNombre(String patron);
+
+    @Query("SELECT  b.billCode, b.total, bd.amount, bd.price FROM Bill b JOIN b.billDetailList bd WHERE b.user.id = :userId")
+    List<Object[]> getBIllsAndBillDetails(Integer userId);
+
+    @Query("SELECT  b FROM Bill b  WHERE b.user.id = :userId")
+    List<Bill> getBills(Integer userId);
 
 
 

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.servicios;
 
+import co.edu.uniquindio.unimarket.entidades.Bill;
 import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.entidades.User;
 import co.edu.uniquindio.unimarket.repo.UserRepo;
@@ -45,6 +46,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> listUsers() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public List<Bill> listBills(Integer userId) {
+        return userRepo.getBills(userId);
+
     }
 
     @Override

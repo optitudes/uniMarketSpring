@@ -19,7 +19,7 @@ public class Bill implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name="billCode", length=45,nullable = false)
+    @Column(name="billCode", length=45,nullable = false, unique = true)
     private String billCode;
 
     @Column(name="total",nullable = false)

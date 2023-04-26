@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.servicios;
 
+import co.edu.uniquindio.unimarket.entidades.Bill;
 import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.entidades.User;
 
@@ -14,6 +15,8 @@ public interface UserService {
     void deleteUser(int id) throws Exception;
 
     List<User> listUsers();
+
+    List<Bill> listBills(Integer userId);
 
     List<String[]> listComments();
 

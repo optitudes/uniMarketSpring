@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 
+import java.util.List;
 import java.util.Optional;
 
 @DataJpaTest
@@ -54,6 +55,23 @@ public class BillDetailTest {
             Assertions.assertFalse(billDetailRepo.findById(1).isPresent());
         }else{
             Assertions.fail("No se encontró la categoria");
+        }
+    }
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void getBillDetailsByBillId(){
+
+        List<BillDetail> billDetailList = billDetailRepo.getDetailsByBillId(1);
+        for (BillDetail billDetail: billDetailList) {
+            Integer billDetailAmount  = billDetail.getAmount();
+            Double billDetailPrice = billDetail.getPrice();
+            System.out.println("amount :"+billDetailAmount+" ; price:"+billDetailPrice);
+        }
+
+        if(2 == billDetailList.size()){
+            Assertions.assertTrue(true);
+        }else{
+            Assertions.fail("No se encontraron los detalles de factura");
         }
     }
 

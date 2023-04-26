@@ -109,14 +109,20 @@ VALUES (4,4);
 INSERT INTO bill (id, bill_code, total, user_id)
 VALUES (1, '001', 100.50, 1);
 INSERT INTO bill (id, bill_code, total, user_id)
-VALUES (2, '001', 100.50, 2);
+VALUES (2, '002', 100.50, 2);
 INSERT INTO bill (id, bill_code, total, user_id)
-VALUES (3, '001', 100.50, 3);
+VALUES (3, '003', 100.50, 3);
 INSERT INTO bill (id, bill_code, total, user_id)
-VALUES (4, '001', 100.50, 4);
+VALUES (4, '004', 100.50, 4);
+INSERT INTO bill (id, bill_code, total, user_id)
+VALUES (5, '005', 100.50, 1);
 
 INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
-VALUES (1, 2, 50.00, 1, 1);
+VALUES (1, 2, 51.00, 1, 1);
+INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
+VALUES (5, 6, 52.00, 1, 1);
+INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
+VALUES (6, 4, 52.00, 5, 1);
 INSERT INTO bill_detail (id, amount, price, bill_id, product_id)
 VALUES (2, 2, 50.00, 2, 2);
 INSERT INTO bill_detail (id, amount, price, bill_id, product_id)

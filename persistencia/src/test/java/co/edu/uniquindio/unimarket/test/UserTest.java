@@ -4,6 +4,8 @@ import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.entidades.User;
 import co.edu.uniquindio.unimarket.repo.LevelAccessRepo;
 import co.edu.uniquindio.unimarket.repo.UserRepo;
+import co.edu.uniquindio.unimarket.entidades.Bill;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,9 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -143,5 +147,49 @@ public class UserTest {
         List<User> usuarios = userRepo.buscarPatronNombre("die");
         Assertions.assertEquals(1, usuarios.size());
     }
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void getAllBillsAndBillDetails(){
+        Optional<User> user = userRepo.findByEmail("sharon@test.com");
+        if(user.isPresent()){
+            List<Object[]> listBillsAndBillDetails = userRepo.getBIllsAndBillDetails(user.get().getId());
+            Map<String, Map<String, Object>> resultMap = listBillsAndBillDetails.stream()
+                    .collect(Collectors.groupingBy(obj -> (String) obj[0], // agrupar por billCode
+                            Collectors.mapping(obj -> Map.of("amount", (Integer) obj[2], "price", (Double) obj[3]),
+                                    Collectors.toList()))) // agregar detalles a una lista
+                    .entrySet().stream()
+                    .collect(Collectors.toMap(Map.Entry::getKey, // billCode como clave del mapa
+                            e -> Map.of("bill_code", e.getKey(),
+                                    "total", ((Double) e.getValue().stream()
+                                            .map(d -> (Double) d.get("price") * (Integer) d.get("amount"))
+                                            .reduce(0.0, Double::sum)),
+                                    "bill_details", e.getValue()))); // lista de detalles como valor del mapa
+
+            System.out.println(resultMap);
+
+            Assertions.assertEquals("Sharon", user.get().getName());
+        }else {
+            Assertions.fail("No se encontró el usuario");
+        }
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void getAllBills(){
+        Optional<User> user = userRepo.findByEmail("sharon@test.com");
+        if(user.isPresent()){
+            List<Bill> billsFinded = userRepo.getBills(user.get().getId());
+            for (Bill bill:billsFinded) {
+                String billCode = bill.getBillCode();
+                Double billTotal = bill.getTotal();
+                System.out.println("code: "+billCode+" ; total: "+billTotal);
+            }
+
+            Assertions.assertEquals("Sharon", user.get().getName());
+        }else {
+            Assertions.fail("No se encontró el usuario");
+        }
+    }
+
 
 }
