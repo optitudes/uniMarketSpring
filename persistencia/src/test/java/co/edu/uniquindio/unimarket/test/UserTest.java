@@ -40,7 +40,7 @@ public class UserTest {
         String email = "pablo@gmail.com";
         String password = "rootie";
         String dni = "119112114";
-        String phoneNumber = "323323323";
+        Integer phoneNumber = 323323323;
         String address = "calarca";
         boolean isActive = true;
         String name = "pablo";

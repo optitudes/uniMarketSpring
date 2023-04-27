@@ -32,7 +32,7 @@ public class User  implements Serializable {
     private String dni;
 
     @Column(name="phone_number", length=15)
-    private String phoneNumber;
+    private Integer phoneNumber;
 
     @Column(name="address", length=45,nullable = false)
     private String address;
