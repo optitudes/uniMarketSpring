@@ -3,6 +3,7 @@ package co.edu.uniquindio.unimarket.controllers;
 import co.edu.uniquindio.unimarket.dto.LoginRequestDTO;
 import co.edu.uniquindio.unimarket.dto.LoginResponseDTO;
 import co.edu.uniquindio.unimarket.dto.MessageDTO;
+import co.edu.uniquindio.unimarket.dto.UserRegisterDTO;
 import co.edu.uniquindio.unimarket.servicios.UserServiceImpl;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -15,8 +16,10 @@ import org.springframework.security.core.GrantedAuthority;
 
 
 import javax.annotation.security.PermitAll;
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -28,14 +31,18 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<MessageDTO> login(@RequestParam("email") String email, @RequestParam("password") String password){
+    public ResponseEntity<MessageDTO> login(@Valid @RequestBody LoginRequestDTO loginInfo){
 
+        try {
+            String email = userServiceImpl.login(loginInfo);
+            String token = getJWTToken(email);
+            LoginResponseDTO loginResponse = new LoginResponseDTO(token);
 
-        String token = getJWTToken(email);
-        LoginResponseDTO loginResponse = new LoginResponseDTO(token);
+            return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, true,"login exitoso",loginResponse ));
 
-        return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, true,"login exitoso",loginResponse ));
-
+        } catch (Exception e) {
+            return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, false,"Ocurrió un error",e.getMessage() ));
+        }
 
     }
     @GetMapping("/pan")
@@ -45,7 +52,7 @@ public class AuthController {
 
     }
 
-    private String getJWTToken(String username) {
+    private String getJWTToken(String email) {
         String secretKey = "estaEsMiClaveSecretaCon512BitsDeLongitudParaHS512a;lsdkj;alksdj309708d9d9d9n";
 
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
@@ -54,7 +61,7 @@ public class AuthController {
         String token = Jwts
                 .builder()
                 .setId("softtekJWT")
-                .setSubject(username)
+                .setSubject(email)
                 .claim("authorities",
                         grantedAuthorities.stream()
                                 .map(GrantedAuthority::getAuthority)

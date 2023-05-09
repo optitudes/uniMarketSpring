@@ -178,7 +178,7 @@ public class UserTest {
     public void getAllBills(){
         Optional<User> user = userRepo.findByEmail("sharon@test.com");
         if(user.isPresent()){
-            List<Bill> billsFinded = userRepo.getBills(user.get().getId());
+            List<Bill> billsFinded = userRepo.getBills(user.get().getEmail());
             for (Bill bill:billsFinded) {
                 String billCode = bill.getBillCode();
                 Double billTotal = bill.getTotal();

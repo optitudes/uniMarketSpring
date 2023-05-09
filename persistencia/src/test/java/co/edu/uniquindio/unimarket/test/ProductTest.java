@@ -82,9 +82,9 @@ public class ProductTest {
         Assertions.assertTrue(isFour);
     }
     @Test
-    @Sql("classpath:dataset.sql")
     public void findByPatternProductTest(){
-        List<Product> prducts = productRepo.finfByPattern("pa");
-        Assertions.assertEquals(2, prducts.size());
+        List<Product> prducts = productRepo.finfByPattern("00");
+        Assertions.assertEquals(3, prducts.size());
     }
+
 }

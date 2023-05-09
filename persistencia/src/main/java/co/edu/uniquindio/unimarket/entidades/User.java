@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,7 +24,7 @@ public class User  implements Serializable {
     @Column(name="email", length=50,unique=true,nullable = false)
     private String email;
 
-    @Column(name="name", length=45,unique=true,nullable = false)
+    @Column(name="name", length=45,nullable = false)
     private String name;
     @Column(name="password",length=45,nullable = false)
     private String password;
@@ -75,5 +76,6 @@ public class User  implements Serializable {
 
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
+    @JsonIgnore
     private List<Bill> billList;
 }

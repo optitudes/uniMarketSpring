@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -42,9 +43,11 @@ public class Bill implements Serializable {
 
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     @OneToMany(mappedBy = "bill")
     @ToString.Exclude
+    @JsonIgnore
     List<BillDetail> billDetailList;
 }

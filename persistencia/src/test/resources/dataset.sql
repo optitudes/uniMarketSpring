@@ -8,16 +8,16 @@ INSERT INTO user (id,email, name, password, dni, phone_number, address, is_activ
 VALUES (1,'sharon@test.com', 'Sharon', 'password', '123456789', 5551234, 'calarca1', true,2);
 
 INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active,level_access_id)
-VALUES (2,'diego@test.com', 'diego', 'password', '123456788', 555-5678, 'armenia1', true,1);
+VALUES (2,'diego@test.com', 'diego', 'password', '123456788', 5555678, 'armenia1', true,1);
 
 INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
-VALUES (3,'sebas@test.com', 'sebas', 'password', '123456777', 555-5678, 'armenia1', true, 2);
+VALUES (3,'sebas@test.com', 'sebas', 'password', '123456777', 5555678, 'armenia1', true, 2);
 
 INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
-VALUES (4,'optitudes@test.com', 'optt', 'password', '123456666', 555-5678, 'armenia1', true, 1);
+VALUES (4,'optitudes@test.com', 'optt', 'password', '123456666', 5555678, 'armenia1', true, 1);
 
 INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
-VALUES (5,'test@test.com', 'test', 'password', '123457777', 555-5678, 'armenia1', true, 2);
+VALUES (5,'test@test.com', 'test', 'password', '123457777', 5555678, 'armenia1', true, 2);
 
 INSERT INTO coupon (id, coupon_value, description, is_active, limit_date, security_code, user_id)
 VALUES (1,125000.0, 'Cupon generado por que si', true, '2023-12-12', '555-5678', 1);

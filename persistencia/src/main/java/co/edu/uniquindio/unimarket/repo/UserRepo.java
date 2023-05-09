@@ -46,8 +46,8 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query("SELECT  b.billCode, b.total, bd.amount, bd.price FROM Bill b JOIN b.billDetailList bd WHERE b.user.id = :userId")
     List<Object[]> getBIllsAndBillDetails(Integer userId);
 
-    @Query("SELECT  b FROM Bill b  WHERE b.user.id = :userId")
-    List<Bill> getBills(Integer userId);
+    @Query("SELECT  u.billList FROM User  u  WHERE u.email = :email")
+    List<Bill> getBills(String email);
 
 
 

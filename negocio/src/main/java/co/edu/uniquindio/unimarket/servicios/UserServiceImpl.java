@@ -1,8 +1,12 @@
 package co.edu.uniquindio.unimarket.servicios;
 
+import co.edu.uniquindio.unimarket.dto.LoginRequestDTO;
+import co.edu.uniquindio.unimarket.dto.UserRegisterDTO;
 import co.edu.uniquindio.unimarket.entidades.Bill;
+import co.edu.uniquindio.unimarket.entidades.LevelAccess;
 import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.entidades.User;
+import co.edu.uniquindio.unimarket.repo.LevelAccessRepo;
 import co.edu.uniquindio.unimarket.repo.UserRepo;
 import org.springframework.stereotype.Service;
 
@@ -13,24 +17,43 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService{
 
     private final UserRepo userRepo;
+    private final LevelAccessRepo levelAccessRepo;
 
-    public UserServiceImpl(UserRepo userRepo) {
+
+    public UserServiceImpl(UserRepo userRepo, LevelAccessRepo levelAccessRepo) {
         this.userRepo = userRepo;
+        this.levelAccessRepo = levelAccessRepo;
     }
 
     @Override
-    public User registerUser(User u) throws Exception {
-        Optional<User> searched = userRepo.findByDni(u.getDni());
+    public Boolean registerUser(UserRegisterDTO newUserInfo) throws Exception {
+
+        Optional<User> searched = userRepo.findByDni(newUserInfo.getDni());
         if (searched.isPresent()){
             throw new Exception("El DNI del usuario ya existe");
         }
-        searched = userRepo.findByEmail(u.getEmail());
+        searched = userRepo.findByEmail(newUserInfo.getEmail());
         if (searched.isPresent()){
             throw new Exception("El correo del usuario ya existe");
         }
+        User newUser = new User();
 
+        newUser.setId(1);
+        newUser.setName(newUserInfo.getName());
+        newUser.setEmail(newUserInfo.getEmail());
+        newUser.setDni(newUserInfo.getDni());
+        newUser.setPassword(newUserInfo.getPassword());
+        newUser.setPhoneNumber(newUserInfo.getPhoneNumber());
+        newUser.setAddress(newUserInfo.getAddress());
+        newUser.setIsActive(true);
 
-        return userRepo.save(u);
+        Optional<LevelAccess> levelAccess = levelAccessRepo.findByAccessCode(2);
+        if (levelAccess.isPresent()){
+            newUser.setLevelAccess(levelAccess.get());
+            return userRepo.save(newUser) != null;
+        }else{
+            throw new Exception("Ocurrió un error al asignar el nivel de acceso");
+        }
     }
 
     @Override
@@ -48,15 +71,28 @@ public class UserServiceImpl implements UserService{
         return userRepo.findAll();
     }
 
-    @Override
-    public List<Bill> listBills(Integer userId) {
-        return userRepo.getBills(userId);
-
-    }
 
     @Override
     public List<String[]> listComments(){return userRepo.listarNombresUsuariosYComentarios();}
 
     @Override
     public List<Product> listFavorites(String email){return userRepo.obtenerProductosFavoritosUser(email);}
+
+    @Override
+    public String login(LoginRequestDTO loginInfo) throws Exception {
+
+        Optional<User> user = userRepo.findByEmailAndPassword(loginInfo.getEmail(),loginInfo.getPassword());
+        if(user.isPresent()){
+            return user.get().getEmail();
+        }else{
+            throw  new Exception("Error en la clave o contraseña");
+        }
+    }
+
+    @Override
+    public List<Bill> getAllBills(String email) throws Exception {
+        return userRepo.getBills(email);
+    }
+
+
 }

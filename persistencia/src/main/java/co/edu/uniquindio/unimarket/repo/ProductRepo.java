@@ -21,7 +21,7 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     Optional<Product> findById(Integer id);
 
-    @Query("select p from Product p where p.name like %:pattern%")
+    @Query("select distinct p from Product p where p.name like %:pattern% OR CAST(p.price AS string) like %:pattern%")
     List<Product> finfByPattern(String pattern);
 
 

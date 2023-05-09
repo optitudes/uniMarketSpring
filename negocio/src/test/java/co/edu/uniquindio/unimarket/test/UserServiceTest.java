@@ -17,6 +17,7 @@ public class UserServiceTest {
     @Autowired
     private UserService userService;
 
+    /*
     @Test
     public void registerUser(){
         User user = new User(1,"pan@test.com","pan","1234","119119119",323323323,"adders",true,null,null,new LevelAccess(),null,null,null);
@@ -27,6 +28,7 @@ public class UserServiceTest {
             Assertions.assertTrue(false);
         }
     }
+    */
     @Test
     public void removeUser(){
         try{

@@ -10,10 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>negocio</artifactId>
+    <packaging>pom</packaging>
     <name>Proyecto de logica de negocio</name>
     <description>Proyecto que representa la logica de negocio y el acceso a los datos</description>
 
     <dependencies>
+
             <dependency>
                 <groupId>co.edu.uniquindio</groupId>
                 <artifactId>persistencia</artifactId>

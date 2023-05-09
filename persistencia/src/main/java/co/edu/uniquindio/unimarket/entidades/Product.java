@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -60,19 +61,27 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "product")
     @ToString.Exclude
+    @JsonIgnore
+
     private List<Comment> commentList;
 
     @ManyToMany(mappedBy = "productList")
+    @JsonIgnore
     private List<Category> categoryList;
 
     @ManyToMany(mappedBy = "productList")
+    @JsonIgnore
+
     private List<Favorite> favoriteList;
 
     @ManyToMany(mappedBy = "productList")
+    @JsonIgnore
+
     private List<ShoppingCart> shoppingCartList;
 
     @OneToMany(mappedBy = "product")
     @ToString.Exclude
+    @JsonIgnore
     List<BillDetail> billDetailList;
 
 }
