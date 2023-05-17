@@ -7,7 +7,6 @@ import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.entidades.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
 

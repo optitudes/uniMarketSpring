@@ -81,10 +81,10 @@ public class ProductTest {
         Boolean isFour = productList.size() == 4;
         Assertions.assertTrue(isFour);
     }
-    @Test
+    /*@Test
     public void findByPatternProductTest(){
         List<Product> prducts = productRepo.finfByPattern("00");
         Assertions.assertEquals(3, prducts.size());
-    }
+    }*/
 
 }

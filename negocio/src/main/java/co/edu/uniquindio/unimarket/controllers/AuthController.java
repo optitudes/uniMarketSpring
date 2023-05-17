@@ -3,7 +3,6 @@ package co.edu.uniquindio.unimarket.controllers;
 import co.edu.uniquindio.unimarket.dto.LoginRequestDTO;
 import co.edu.uniquindio.unimarket.dto.LoginResponseDTO;
 import co.edu.uniquindio.unimarket.dto.MessageDTO;
-import co.edu.uniquindio.unimarket.dto.UserRegisterDTO;
 import co.edu.uniquindio.unimarket.servicios.UserServiceImpl;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -15,11 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.GrantedAuthority;
 
 
-import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -43,12 +40,6 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, false,"Ocurrió un error",e.getMessage() ));
         }
-
-    }
-    @GetMapping("/pan")
-    public ResponseEntity<MessageDTO> pan(){
-        return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, true,"login exitoso","pan"));
-
 
     }
 

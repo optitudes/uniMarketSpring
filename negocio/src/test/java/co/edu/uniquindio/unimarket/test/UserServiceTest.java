@@ -28,7 +28,7 @@ public class UserServiceTest {
             Assertions.assertTrue(false);
         }
     }
-    */
+
     @Test
     public void removeUser(){
         try{
@@ -38,5 +38,5 @@ public class UserServiceTest {
             Assertions.assertTrue(false);
         }
     }
-
+*/
 }

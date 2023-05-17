@@ -3,6 +3,7 @@ package co.edu.uniquindio.unimarket;
 import co.edu.uniquindio.unimarket.security.JWTAuthorizationFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -33,6 +34,9 @@ public class NegocioApplication extends SpringBootServletInitializer {
                     .antMatchers(HttpMethod.POST, "/api/user/register").permitAll()
 
                     .anyRequest().authenticated();
+        }
+        protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+            return application.sources(NegocioApplication.class);
         }
     }
 }
