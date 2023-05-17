@@ -1,10 +1,10 @@
 co/edu/uniquindio/unimarket/PersistenciaApplication.class
+co/edu/uniquindio/unimarket/entidades/Users.class
 co/edu/uniquindio/unimarket/entidades/Favorite.class
 co/edu/uniquindio/unimarket/repo/UserRepo.class
 co/edu/uniquindio/unimarket/entidades/Category.class
 co/edu/uniquindio/unimarket/repo/LevelAccessRepo.class
 co/edu/uniquindio/unimarket/entidades/LevelAccess.class
-co/edu/uniquindio/unimarket/entidades/User.class
 co/edu/uniquindio/unimarket/repo/CategoryRepo.class
 co/edu/uniquindio/unimarket/entidades/Coupon.class
 co/edu/uniquindio/unimarket/repo/FavoriteRepo.class

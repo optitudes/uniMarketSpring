@@ -38,7 +38,7 @@ public class ShoppingCart implements Serializable {
     }
 
     @OneToOne
-    private User user;
+    private Users user;
 
     @ManyToMany
     private List<Product> productList;

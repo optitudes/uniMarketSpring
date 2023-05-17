@@ -42,5 +42,5 @@ public class LevelAccess implements Serializable {
 
     @OneToMany(mappedBy = "levelAccess")
     @ToString.Exclude
-    private List<User> user;
+    private List<Users> user;
 }

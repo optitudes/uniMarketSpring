@@ -4,19 +4,19 @@ INSERT INTO level_access (id,access_code, description)
 VALUES (2,2, 'corresponde a los usuarios normales');
 
 
-INSERT INTO user (id,email, name, password, dni, phone_number, address, is_active,level_access_id)
+INSERT INTO users (id,email, name, password, dni, phone_number, address, is_active,level_access_id)
 VALUES (1,'sharon@test.com', 'Sharon', 'password', '123456789', 5551234, 'calarca1', true,2);
 
-INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active,level_access_id)
+INSERT INTO users (id, email, name, password, dni, phone_number, address, is_active,level_access_id)
 VALUES (2,'diego@test.com', 'diego', 'password', '123456788', 5555678, 'armenia1', true,1);
 
-INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
+INSERT INTO users (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
 VALUES (3,'sebas@test.com', 'sebas', 'password', '123456777', 5555678, 'armenia1', true, 2);
 
-INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
+INSERT INTO users (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
 VALUES (4,'optitudes@test.com', 'optt', 'password', '123456666', 5555678, 'armenia1', true, 1);
 
-INSERT INTO user (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
+INSERT INTO users (id, email, name, password, dni, phone_number, address, is_active, level_access_id)
 VALUES (5,'test@test.com', 'test', 'password', '123457777', 5555678, 'armenia1', true, 2);
 
 INSERT INTO coupon (id, coupon_value, description, is_active, limit_date, security_code, user_id)
@@ -30,35 +30,35 @@ VALUES (4,125000.0, 'Cupon generado automativamente', true, '2023-12-12', '555-5
 
 
 INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
-VALUES (1,"un pan muy rico", 'image/url', true, true,1, 'pan', 4.0);
+VALUES (1,'un pan muy rico', 'image/url', true, true,1, 'pan', 4.0);
 
 INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
-VALUES (2,"Lampara de noche muy luminosa", 'image/url', true, true,1, 'Lampara de noche', 200.0);
+VALUES (2,'Lampara de noche muy luminosa', 'image/url', true, true,1, 'Lampara de noche', 200.0);
 
 INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
-VALUES (3,"LLanta de carro", 'image/url', true, true,1, 'Llanta carro', 4000.0);
+VALUES (3,'LLanta de carro', 'image/url', true, true,1, 'Llanta carro', 4000.0);
 
 INSERT INTO product (id, description, image, is_active, is_available,stacks, name, price)
-VALUES (4,"Guitarra gypson 2022", 'image/url', true, true,1, 'gypson guitarra', 499000.0);
+VALUES (4,'Guitarra gypson 2022', 'image/url', true, true,1, 'gypson guitarra', 499000.0);
 
 
 INSERT INTO comment (id, comment, product_id, user_id)
-VALUES (1,"El pan está muy rico", 1, 1);
+VALUES (1,'El pan está muy rico', 1, 1);
 INSERT INTO comment (id, comment, product_id, user_id)
-VALUES (2,"Alumbra bastante bien", 2, 2);
+VALUES (2,'Alumbra bastante bien', 2, 2);
 INSERT INTO comment (id, comment, product_id, user_id)
-VALUES (3,"Me sirvió mucho esa llanta",3,3);
+VALUES (3,'Me sirvió mucho esa llanta',3,3);
 INSERT INTO comment (id, comment, product_id, user_id)
-VALUES (4,"Yo tengo una igual y son muy buenas", 4, 4);
+VALUES (4,'Yo tengo una igual y son muy buenas', 4, 4);
 
 INSERT INTO category (id, description, name)
-VALUES (1,"Productos familiares", "Familiar");
+VALUES (1,'Productos familiares', 'Familiar');
 INSERT INTO category (id, description, name)
-VALUES (2,"Productos para el cuidado del hogar", "Hogar");
+VALUES (2,'Productos para el cuidado del hogar', 'Hogar');
 INSERT INTO category (id, description, name)
-VALUES (3,"Productos al aire libre ", "Aire libre");
+VALUES (3,'Productos al aire libre ', 'Aire libre');
 INSERT INTO category (id, description, name)
-VALUES (4,"Productos de iluminacion", "Iluminacion");
+VALUES (4,'Productos de iluminacion', 'Iluminacion');
 
 INSERT INTO favorite (id, user_id)
 VALUES (1,1);

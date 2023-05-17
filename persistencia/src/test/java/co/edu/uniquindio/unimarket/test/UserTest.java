@@ -1,7 +1,7 @@
 package co.edu.uniquindio.unimarket.test;
 
 import co.edu.uniquindio.unimarket.entidades.Product;
-import co.edu.uniquindio.unimarket.entidades.User;
+import co.edu.uniquindio.unimarket.entidades.Users;
 import co.edu.uniquindio.unimarket.repo.LevelAccessRepo;
 import co.edu.uniquindio.unimarket.repo.UserRepo;
 import co.edu.uniquindio.unimarket.entidades.Bill;
@@ -45,9 +45,9 @@ public class UserTest {
         boolean isActive = true;
         String name = "pablo";
 
-        User user = new User(1,email,name,password,dni,phoneNumber,address,isActive,null,null,null,null,null,null);
+        Users user = new Users(1,email,name,password,dni,phoneNumber,address,isActive,null,null,null,null,null,null);
 
-        User usuarioGuardado = userRepo.save(user);
+        Users usuarioGuardado = userRepo.save(user);
         Assertions.assertEquals("pablo", usuarioGuardado.getName());
         System.out.println(usuarioGuardado);
     }
@@ -55,11 +55,11 @@ public class UserTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void updateTest(){
-        Optional<User> user = userRepo.findById(1);
+        Optional<Users> user = userRepo.findById(1);
         if(user.isPresent()){
             user.get().setName("dahiana");
             userRepo.save(user.get());
-            Optional<User> userUpdated = userRepo.findById(1);
+            Optional<Users> userUpdated = userRepo.findById(1);
             if(userUpdated.isPresent()){
                 Assertions.assertEquals("dahiana", user.get().getName());
 
@@ -74,7 +74,7 @@ public class UserTest {
     @Sql("classpath:dataset.sql")
     public void remove(){
 
-        Optional<User> user = userRepo.findById(1);
+        Optional<Users> user = userRepo.findById(1);
         if(user.isPresent()){
             userRepo.delete(user.get());
             Assertions.assertFalse(userRepo.findById(1).isPresent());
@@ -86,7 +86,7 @@ public class UserTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void findByEmailAndPasswordTest(){
-        Optional<User> user = userRepo.findByEmailAndPassword("sharon@test.com","password");
+        Optional<Users> user = userRepo.findByEmailAndPassword("sharon@test.com","password");
         if(user.isPresent()){
             Assertions.assertEquals("Sharon", user.get().getName());
         }else {
@@ -99,7 +99,7 @@ public class UserTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void findByEmailTest(){
-        Optional<User> user = userRepo.findByEmail("sharon@test.com");
+        Optional<Users> user = userRepo.findByEmail("sharon@test.com");
         if(user.isPresent()){
             Assertions.assertEquals("Sharon", user.get().getName());
         }else {
@@ -111,7 +111,7 @@ public class UserTest {
     public void filtrarEmailTest(){
         Pageable paginador = PageRequest.of(0,2);
 
-        Page<User> list = userRepo.findAll(paginador);
+        Page<Users> list = userRepo.findAll(paginador);
         Assertions.assertNotNull(list, "La lista de usuarios filtrados por email no puede ser nula");
     }
    @Test
@@ -144,13 +144,13 @@ public class UserTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void buscarPatronNombreUserTest(){
-        List<User> usuarios = userRepo.buscarPatronNombre("die");
+        List<Users> usuarios = userRepo.buscarPatronNombre("die");
         Assertions.assertEquals(1, usuarios.size());
     }
     @Test
     @Sql("classpath:dataset.sql")
     public void getAllBillsAndBillDetails(){
-        Optional<User> user = userRepo.findByEmail("sharon@test.com");
+        Optional<Users> user = userRepo.findByEmail("sharon@test.com");
         if(user.isPresent()){
             List<Object[]> listBillsAndBillDetails = userRepo.getBIllsAndBillDetails(user.get().getId());
             Map<String, Map<String, Object>> resultMap = listBillsAndBillDetails.stream()
@@ -176,7 +176,7 @@ public class UserTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void getAllBills(){
-        Optional<User> user = userRepo.findByEmail("sharon@test.com");
+        Optional<Users> user = userRepo.findByEmail("sharon@test.com");
         if(user.isPresent()){
             List<Bill> billsFinded = userRepo.getBills(user.get().getEmail());
             for (Bill bill:billsFinded) {

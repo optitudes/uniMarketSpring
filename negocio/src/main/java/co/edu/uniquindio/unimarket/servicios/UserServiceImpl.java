@@ -5,7 +5,7 @@ import co.edu.uniquindio.unimarket.dto.UserRegisterDTO;
 import co.edu.uniquindio.unimarket.entidades.Bill;
 import co.edu.uniquindio.unimarket.entidades.LevelAccess;
 import co.edu.uniquindio.unimarket.entidades.Product;
-import co.edu.uniquindio.unimarket.entidades.User;
+import co.edu.uniquindio.unimarket.entidades.Users;
 import co.edu.uniquindio.unimarket.repo.LevelAccessRepo;
 import co.edu.uniquindio.unimarket.repo.UserRepo;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public Boolean registerUser(UserRegisterDTO newUserInfo) throws Exception {
 
-        Optional<User> searched = userRepo.findByDni(newUserInfo.getDni());
+        Optional<Users> searched = userRepo.findByDni(newUserInfo.getDni());
         if (searched.isPresent()){
             throw new Exception("El DNI del usuario ya existe");
         }
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
         if (searched.isPresent()){
             throw new Exception("El correo del usuario ya existe");
         }
-        User newUser = new User();
+        Users newUser = new Users();
 
         newUser.setId(1);
         newUser.setName(newUserInfo.getName());
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User updateUser(User u) throws Exception {
+    public Users updateUser(Users u) throws Exception {
         return userRepo.save(u);
     }
 
@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> listUsers() {
+    public List<Users> listUsers() {
         return userRepo.findAll();
     }
 
@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public String login(LoginRequestDTO loginInfo) throws Exception {
 
-        Optional<User> user = userRepo.findByEmailAndPassword(loginInfo.getEmail(),loginInfo.getPassword());
+        Optional<Users> user = userRepo.findByEmailAndPassword(loginInfo.getEmail(),loginInfo.getPassword());
         if(user.isPresent()){
             return user.get().getEmail();
         }else{

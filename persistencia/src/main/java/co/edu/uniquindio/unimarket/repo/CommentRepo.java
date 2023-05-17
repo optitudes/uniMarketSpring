@@ -1,7 +1,7 @@
 package co.edu.uniquindio.unimarket.repo;
 
 import co.edu.uniquindio.unimarket.entidades.Comment;
-import co.edu.uniquindio.unimarket.entidades.User;
+import co.edu.uniquindio.unimarket.entidades.Users;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public interface CommentRepo  extends JpaRepository<Comment, Integer> {
 
-    Optional<Comment> findByUser(User user);
+    Optional<Comment> findByUser(Users user);
     Optional<Comment> findByComment(String comment);
     Page<Comment> findAll(Pageable pageable);
 

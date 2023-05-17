@@ -1,11 +1,7 @@
 package co.edu.uniquindio.unimarket.test;
 
 import co.edu.uniquindio.unimarket.NegocioApplication;
-import co.edu.uniquindio.unimarket.entidades.LevelAccess;
-import co.edu.uniquindio.unimarket.entidades.User;
 import co.edu.uniquindio.unimarket.servicios.UserService;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

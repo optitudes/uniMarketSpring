@@ -13,6 +13,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @ToString
 @Entity
+@Table(name = "bill")
 public class Bill implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,7 +43,8 @@ public class Bill implements Serializable {
 
 
     @ManyToOne
-    private User user;
+    @JoinColumn(name = "user_id")  // Nombre de la columna en la base de datos
+    private Users user;
 
     @OneToMany(mappedBy = "bill")
     @ToString.Exclude

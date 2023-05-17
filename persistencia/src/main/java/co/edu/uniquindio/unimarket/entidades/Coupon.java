@@ -35,7 +35,7 @@ public class Coupon implements Serializable {
     private Date limitDate;
 
     @ManyToOne
-    private User user;
+    private Users user;
 
     @Override
     public boolean equals(Object o) {
