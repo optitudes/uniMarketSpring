@@ -30,7 +30,7 @@ public class ProductTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<Product> product = productRepo.findById(1);
         if(product.isPresent()){
@@ -49,7 +49,7 @@ public class ProductTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<Product> product = productRepo.findById(3);
@@ -63,7 +63,7 @@ public class ProductTest {
 
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void findByName(){
 
         Optional<Product> product = productRepo.findByName("pan");
@@ -74,7 +74,7 @@ public class ProductTest {
         }
     }
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void findByIsActive(){
 
         List<Product> productList = productRepo.findByIsActive(true);

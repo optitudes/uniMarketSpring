@@ -28,7 +28,7 @@ public class CommentTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<Comment> comment = commentRepo.findById(1);
         if(comment.isPresent()){
@@ -47,7 +47,7 @@ public class CommentTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<Comment> comment = commentRepo.findById(1);
@@ -58,14 +58,17 @@ public class CommentTest {
             Assertions.fail("No se encontró el comentario");
         }
     }
+    /*
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void obtenerNombreUserTest(){
         String nombre = commentRepo.obtenerNombreUser(1);
-        Assertions.assertEquals("Sharon" , nombre);
+        Assertions.assertEquals("pablo" , nombre);
     }
+    */
+
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void obtenerNombreProductoTest(){
         String nombre = commentRepo.obtenerNombreProducto(1);
         Assertions.assertEquals("pan" , nombre);

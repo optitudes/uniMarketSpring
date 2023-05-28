@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: co.edu.uniquindio.unimarket.test.UserTest
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 169.569 s - in co.edu.uniquindio.unimarket.test.UserTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.425 s - in co.edu.uniquindio.unimarket.test.UserTest

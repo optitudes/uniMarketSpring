@@ -79,13 +79,15 @@ public class UserServiceImpl implements UserService{
     public List<Product> listFavorites(String email){return userRepo.obtenerProductosFavoritosUser(email);}
 
     @Override
-    public String login(LoginRequestDTO loginInfo) throws Exception {
+    public String[] login(LoginRequestDTO loginInfo) throws Exception {
 
         Optional<Users> user = userRepo.findByEmailAndPassword(loginInfo.getEmail(),loginInfo.getPassword());
         if(user.isPresent()){
-            return user.get().getEmail();
+            String username = user.get().getName();
+            String email = user.get().getEmail();
+            return new String[]{email,username};
         }else{
-            throw  new Exception("Error en la clave o contraseña");
+            throw  new Exception(user.toString());
         }
     }
 

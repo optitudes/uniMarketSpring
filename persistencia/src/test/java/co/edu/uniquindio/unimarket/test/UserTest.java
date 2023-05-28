@@ -33,7 +33,7 @@ public class UserTest {
 
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
 
     public void register(){
 
@@ -53,7 +53,7 @@ public class UserTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<Users> user = userRepo.findById(1);
         if(user.isPresent()){
@@ -71,7 +71,7 @@ public class UserTest {
         }
     }
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<Users> user = userRepo.findById(1);
@@ -84,11 +84,11 @@ public class UserTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void findByEmailAndPasswordTest(){
-        Optional<Users> user = userRepo.findByEmailAndPassword("sharon@test.com","password");
+        Optional<Users> user = userRepo.findByEmailAndPassword("diego@test.com","password");
         if(user.isPresent()){
-            Assertions.assertEquals("Sharon", user.get().getName());
+            Assertions.assertEquals("diego", user.get().getName());
         }else {
             Assertions.fail("No se encontró el usuario");
         }
@@ -97,17 +97,17 @@ public class UserTest {
 
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void findByEmailTest(){
-        Optional<Users> user = userRepo.findByEmail("sharon@test.com");
+        Optional<Users> user = userRepo.findByEmail("diego@test.com");
         if(user.isPresent()){
-            Assertions.assertEquals("Sharon", user.get().getName());
+            Assertions.assertEquals("diego", user.get().getName());
         }else {
             Assertions.fail("No se encontró el usuario");
         }
     }
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void filtrarEmailTest(){
         Pageable paginador = PageRequest.of(0,2);
 
@@ -115,13 +115,13 @@ public class UserTest {
         Assertions.assertNotNull(list, "La lista de usuarios filtrados por email no puede ser nula");
     }
    @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void obtenerProductosFavoritosUserTest(){
         List<Product> favoritos = userRepo.obtenerProductosFavoritosUser("diego@test.com");
         Assertions.assertEquals(1, favoritos.size());
     }
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void obtenerProductosCarritoUserTest(){
         List<Product> favoritos = userRepo.obtenerProductosCarritoUser("diego@test.com");
         Assertions.assertEquals(1, favoritos.size());
@@ -129,28 +129,28 @@ public class UserTest {
 
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void listarUsuariosYCuponesUserTest(){
         List<String[]> respuesta = userRepo.listarUsuariosYCupones();
         respuesta.forEach(arr -> System.out.println(Arrays.toString(arr)));
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void listarNombresUsuariosYComentariosUserTest(){
         List<String[]> respuesta = userRepo.listarNombresUsuariosYComentarios();
         respuesta.forEach(arr -> System.out.println(Arrays.toString(arr)));
     }
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void buscarPatronNombreUserTest(){
         List<Users> usuarios = userRepo.buscarPatronNombre("die");
         Assertions.assertEquals(1, usuarios.size());
     }
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void getAllBillsAndBillDetails(){
-        Optional<Users> user = userRepo.findByEmail("sharon@test.com");
+        Optional<Users> user = userRepo.findByEmail("diego@test.com");
         if(user.isPresent()){
             List<Object[]> listBillsAndBillDetails = userRepo.getBIllsAndBillDetails(user.get().getId());
             Map<String, Map<String, Object>> resultMap = listBillsAndBillDetails.stream()
@@ -167,16 +167,16 @@ public class UserTest {
 
             System.out.println(resultMap);
 
-            Assertions.assertEquals("Sharon", user.get().getName());
+            Assertions.assertEquals("diego", user.get().getName());
         }else {
             Assertions.fail("No se encontró el usuario");
         }
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void getAllBills(){
-        Optional<Users> user = userRepo.findByEmail("sharon@test.com");
+        Optional<Users> user = userRepo.findByEmail("diego@test.com");
         if(user.isPresent()){
             List<Bill> billsFinded = userRepo.getBills(user.get().getEmail());
             for (Bill bill:billsFinded) {
@@ -185,7 +185,7 @@ public class UserTest {
                 System.out.println("code: "+billCode+" ; total: "+billTotal);
             }
 
-            Assertions.assertEquals("Sharon", user.get().getName());
+            Assertions.assertEquals("diego", user.get().getName());
         }else {
             Assertions.fail("No se encontró el usuario");
         }

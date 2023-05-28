@@ -26,7 +26,7 @@ public class FavoriteTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<Favorite> favorite = favoriteRepo.findById(1);

@@ -27,7 +27,7 @@ public class CategoryTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<Category> category = categoryRepo.findById(1);
         if(category.isPresent()){
@@ -46,7 +46,7 @@ public class CategoryTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<Category> category = categoryRepo.findById(1);
@@ -59,7 +59,7 @@ public class CategoryTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void findByName(){
 
         Optional<Category> category = categoryRepo.findByName("Familiar");

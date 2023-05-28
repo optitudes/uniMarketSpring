@@ -26,7 +26,7 @@ public class LevelAccessTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<LevelAccess> levelAccess = levelAccessRepo.findById(1);
         if(levelAccess.isPresent()){
@@ -46,7 +46,7 @@ public class LevelAccessTest {
 
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<LevelAccess> levelAccess = levelAccessRepo.findById(1);

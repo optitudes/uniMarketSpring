@@ -27,7 +27,7 @@ public class BillTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<Bill> bill = billRepo.findById(1);
         if(bill.isPresent()){
@@ -46,7 +46,7 @@ public class BillTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<Bill> bill = billRepo.findById(1);

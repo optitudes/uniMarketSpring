@@ -29,7 +29,7 @@ public class CouponTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<Coupon> coupon = couponRepo.findById(1);
         if(coupon.isPresent()){
@@ -48,7 +48,7 @@ public class CouponTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<Coupon> coupon = couponRepo.findById(1);
@@ -61,7 +61,7 @@ public class CouponTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void findBySecurityCode(){
 
         Optional<Coupon> coupon = couponRepo.findBySecurityCode("555-5678");

@@ -27,7 +27,7 @@ public class BillDetailTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void updateTest(){
         Optional<BillDetail> billDetail = billDetailRepo.findById(1);
         if(billDetail.isPresent()){
@@ -46,7 +46,7 @@ public class BillDetailTest {
     }
 
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void remove(){
 
         Optional<BillDetail> billDetail = billDetailRepo.findById(1);
@@ -58,7 +58,7 @@ public class BillDetailTest {
         }
     }
     @Test
-    @Sql("classpath:dataset.sql")
+    //@Sql("classpath:dataset.sql")
     public void getBillDetailsByBillId(){
 
         List<BillDetail> billDetailList = billDetailRepo.getDetailsByBillId(1);

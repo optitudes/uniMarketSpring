@@ -25,9 +25,9 @@ public interface UserRepo extends JpaRepository<Users, Integer> {
 
     Optional<Users> findByEmailAndIsActive(String email, boolean isActive);
 
-    @Query("select p from Users u INNER JOIN u.favorite.productList p where u.email = :email")
+    @Query("select p from Users u  JOIN u.favorite.productList p where u.email = :email")
     List<Product> obtenerProductosFavoritosUser(String email);
-    @Query("select p from Users u INNER JOIN u.shoppingCart.productList p where u.email = :email")
+    @Query("select p from Users u  JOIN u.shoppingCart.productList p where u.email = :email")
     List<Product> obtenerProductosCarritoUser(String email);
 
     @Query("select u.email, c from Users u join u.commentList c")

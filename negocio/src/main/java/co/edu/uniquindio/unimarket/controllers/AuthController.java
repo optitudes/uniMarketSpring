@@ -31,9 +31,9 @@ public class AuthController {
     public ResponseEntity<MessageDTO> login(@Valid @RequestBody LoginRequestDTO loginInfo){
 
         try {
-            String email = userServiceImpl.login(loginInfo);
-            String token = getJWTToken(email);
-            LoginResponseDTO loginResponse = new LoginResponseDTO(token);
+            String[] userInfo = userServiceImpl.login(loginInfo);
+            String token = getJWTToken(userInfo[0]);
+            LoginResponseDTO loginResponse = new LoginResponseDTO(token,userInfo[0],userInfo[1]);
 
             return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, true,"login exitoso",loginResponse ));
 

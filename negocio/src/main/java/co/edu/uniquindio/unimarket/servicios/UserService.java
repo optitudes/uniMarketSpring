@@ -21,6 +21,6 @@ public interface UserService {
     List<String[]> listComments();
 
    List<Product> listFavorites(String email);
-   String login(LoginRequestDTO loginInfo) throws Exception;
+   String[] login(LoginRequestDTO loginInfo) throws Exception;
    List<Bill> getAllBills(String email) throws Exception;
 }
