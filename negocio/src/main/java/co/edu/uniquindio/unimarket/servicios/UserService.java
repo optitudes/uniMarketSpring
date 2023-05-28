@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.servicios;
 
+import co.edu.uniquindio.unimarket.dto.BillDTO;
 import co.edu.uniquindio.unimarket.dto.LoginRequestDTO;
 import co.edu.uniquindio.unimarket.dto.UserRegisterDTO;
 import co.edu.uniquindio.unimarket.entidades.Bill;
@@ -22,5 +23,5 @@ public interface UserService {
 
    List<Product> listFavorites(String email);
    String[] login(LoginRequestDTO loginInfo) throws Exception;
-   List<Bill> getAllBills(String email) throws Exception;
+   List<BillDTO> getAllBills(String email) throws Exception;
 }

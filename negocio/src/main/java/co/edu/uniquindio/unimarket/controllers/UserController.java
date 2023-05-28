@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.controllers;
 
+import co.edu.uniquindio.unimarket.dto.BillDTO;
 import co.edu.uniquindio.unimarket.dto.MessageDTO;
 import co.edu.uniquindio.unimarket.dto.UserRegisterDTO;
 import co.edu.uniquindio.unimarket.entidades.Bill;
@@ -43,7 +44,7 @@ public class UserController {
 
             String email = TokenUtils.getEmailFromJWTToken(jwtToken);
 
-            List<Bill> billList = userServiceImpl.getAllBills(email);
+            List<BillDTO> billList = userServiceImpl.getAllBills(email);
             return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, true,"Obtencion de compras correcta",billList ));
 
         } catch (Exception e) {

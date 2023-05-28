@@ -9,6 +9,7 @@
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/controllers/AuthController.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/dto/MessageDTO.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/servicios/ShoppingCartServiceImpl.java
+/Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/dto/BillDTO.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/dto/LoginRequestDTO.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/dto/UserRegisterDTO.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/servicios/CategoryService.java

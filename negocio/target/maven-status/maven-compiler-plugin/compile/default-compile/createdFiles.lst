@@ -18,6 +18,7 @@ co/edu/uniquindio/unimarket/servicios/ProductServiceImpl.class
 co/edu/uniquindio/unimarket/servicios/ShoppingCartServiceImpl.class
 co/edu/uniquindio/unimarket/dto/MessageDTO.class
 co/edu/uniquindio/unimarket/security/TokenUtils.class
+co/edu/uniquindio/unimarket/dto/BillDTO.class
 co/edu/uniquindio/unimarket/controllers/ProductController.class
 co/edu/uniquindio/unimarket/servicios/UserService.class
 co/edu/uniquindio/unimarket/servicios/ShoppingCartService.class

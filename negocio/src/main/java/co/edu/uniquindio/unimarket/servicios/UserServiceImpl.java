@@ -1,5 +1,6 @@
 package co.edu.uniquindio.unimarket.servicios;
 
+import co.edu.uniquindio.unimarket.dto.BillDTO;
 import co.edu.uniquindio.unimarket.dto.LoginRequestDTO;
 import co.edu.uniquindio.unimarket.dto.UserRegisterDTO;
 import co.edu.uniquindio.unimarket.entidades.Bill;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -92,8 +94,15 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<Bill> getAllBills(String email) throws Exception {
-        return userRepo.getBills(email);
+    public List<BillDTO> getAllBills(String email) throws Exception {
+        List<Bill> bills = userRepo.getBills(email);
+        return bills.stream()
+                .map(this::transformBill)
+                .collect(Collectors.toList());
+    }
+    private BillDTO transformBill(Bill bill) {
+        BillDTO transformedBill = new BillDTO(bill.getId(),bill.getBillCode(),bill.getTotal());
+        return transformedBill;
     }
 
 
