@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: co.edu.uniquindio.unimarket.test.BillTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.331 s - in co.edu.uniquindio.unimarket.test.BillTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.151 s - in co.edu.uniquindio.unimarket.test.BillTest
