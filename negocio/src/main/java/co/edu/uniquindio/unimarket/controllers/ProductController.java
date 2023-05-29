@@ -1,6 +1,7 @@
 package co.edu.uniquindio.unimarket.controllers;
 
 import co.edu.uniquindio.unimarket.dto.MessageDTO;
+import co.edu.uniquindio.unimarket.dto.ProductDTO;
 import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.servicios.ProductServiceImpl;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class ProductController {
     @GetMapping("/search/{pattern}")
     public ResponseEntity<MessageDTO> searchProducts(@PathVariable String pattern){
         try {
-            List<Product> productList = productServiceImpl.findByNameOrPrice(pattern);
+            List<ProductDTO> productList = productServiceImpl.findByNameOrPrice(pattern);
             return ResponseEntity.status(200).body( new MessageDTO(HttpStatus.OK, true,"Productos cargados con exito",productList ));
 
         } catch (Exception e) {

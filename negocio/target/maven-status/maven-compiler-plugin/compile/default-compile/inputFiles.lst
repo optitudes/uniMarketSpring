@@ -13,6 +13,7 @@
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/dto/LoginRequestDTO.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/dto/UserRegisterDTO.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/servicios/CategoryService.java
+/Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/dto/ProductDTO.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/servicios/UserServiceImpl.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/security/JWTAuthorizationFilter.java
 /Users/usuario/Desktop/programacionA/unimarket/unimarket/negocio/src/main/java/co/edu/uniquindio/unimarket/NegocioApplication.java

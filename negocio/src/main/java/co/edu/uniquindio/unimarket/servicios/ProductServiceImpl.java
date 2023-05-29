@@ -1,10 +1,16 @@
 package co.edu.uniquindio.unimarket.servicios;
 
+import co.edu.uniquindio.unimarket.dto.BillDTO;
+import co.edu.uniquindio.unimarket.dto.ProductDTO;
+import co.edu.uniquindio.unimarket.entidades.Bill;
 import co.edu.uniquindio.unimarket.entidades.Product;
 import co.edu.uniquindio.unimarket.repo.ProductRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductServiceImpl implements ProductService{
 
@@ -30,8 +36,23 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> findByNameOrPrice(String pattern) throws Exception {
+    public List<ProductDTO> findByNameOrPrice(String pattern) throws Exception {
 
-        return productRepo.finfByPattern(pattern);
+        List<Product> filteredProducts = productRepo.finfByPattern(pattern);
+        return filteredProducts.stream()
+                .map(this::transformProduct)
+                .collect(Collectors.toList());
+    }
+    private ProductDTO transformProduct(Product product) {
+        ProductDTO transformedProduct = new ProductDTO(product.getId(),
+                                                       product.getImage(),
+                                                        product.getName(),
+                                                        product.getDescription(),
+                                                        product.getPrice(),
+                                                        product.getIsAvailable(),
+                                                        product.getStacks(),
+                                                        product.getLimitDate(),
+                                                        product.getIsActive());
+        return transformedProduct;
     }
 }

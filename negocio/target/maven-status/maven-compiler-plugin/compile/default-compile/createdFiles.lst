@@ -4,6 +4,7 @@ co/edu/uniquindio/unimarket/servicios/CategoryService.class
 co/edu/uniquindio/unimarket/servicios/LevelAccessServiceImpl.class
 co/edu/uniquindio/unimarket/servicios/FavoriteService.class
 co/edu/uniquindio/unimarket/servicios/CouponService.class
+co/edu/uniquindio/unimarket/dto/ProductDTO.class
 co/edu/uniquindio/unimarket/servicios/UserServiceImpl.class
 co/edu/uniquindio/unimarket/dto/UserRegisterDTO.class
 co/edu/uniquindio/unimarket/NegocioApplication.class
